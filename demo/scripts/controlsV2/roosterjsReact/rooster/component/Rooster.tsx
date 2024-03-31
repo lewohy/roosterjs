@@ -12,7 +12,7 @@ import type { EditorPlugin, IEditor, EditorOptions } from 'roosterjs-content-mod
  * @param props Properties of this component
  * @returns The react component
  */
-export function Rooster(props: RoosterProps) {
+export function Rooster(props: RoosterProps & { onInit?: (editor: IEditor) => void }) {
     const editorDiv = React.useRef<HTMLDivElement>(null);
     const editor = React.useRef<IEditor | null>(null);
     const theme = useTheme();
@@ -34,6 +34,7 @@ export function Rooster(props: RoosterProps) {
     React.useEffect(() => {
         if (editorDiv.current) {
             editor.current = (editorCreator || defaultEditorCreator)(editorDiv.current, props);
+            props.onInit?.(editor.current);
         }
 
         if (focusOnInit) {

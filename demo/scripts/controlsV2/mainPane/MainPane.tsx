@@ -73,7 +73,10 @@ const POPOUT_FEATURES = 'menubar=no,statusbar=no,width=1200,height=800';
 const POPOUT_URL = 'about:blank';
 const POPOUT_TARGET = '_blank';
 
-export class MainPane extends React.Component<{}, MainPaneState> {
+export class MainPane extends React.Component<
+    {} & { onEditorInit?: (editor: IEditor) => void },
+    MainPaneState
+> {
     private mouseX: number;
     private static instance: MainPane;
     private popoutRoot: HTMLElement;
@@ -94,13 +97,15 @@ export class MainPane extends React.Component<{}, MainPaneState> {
     private knownColors: Record<string, Colors> = {};
     protected themeMatch = window.matchMedia?.('(prefers-color-scheme: dark)');
 
+    private onEditorInit: (editor: IEditor) => void;
+
     static getInstance() {
         return this.instance;
     }
 
     static readonly editorDivId = 'RoosterJsContentDiv';
 
-    constructor(props: {}) {
+    constructor(props: {} & { onEditorInit?: (editor: IEditor) => void }) {
         super(props);
 
         MainPane.instance = this;
@@ -139,6 +144,8 @@ export class MainPane extends React.Component<{}, MainPaneState> {
             },
             activeTab: 'all',
         };
+
+        this.onEditorInit = props.onEditorInit;
     }
 
     render() {
@@ -354,6 +361,7 @@ export class MainPane extends React.Component<{}, MainPaneState> {
                             dir={this.state.isRtl ? 'rtl' : 'ltr'}
                             knownColors={this.knownColors}
                             disableCache={this.state.initState.disableCache}
+                            onInit={this.onEditorInit}
                         />
                     )}
                 </div>
