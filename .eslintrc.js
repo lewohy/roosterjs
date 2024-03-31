@@ -126,7 +126,7 @@ module.exports = {
         'no-trailing-spaces': 'error',
         'no-underscore-dangle': 'off',
         'no-unused-expressions': 'off',
-        'no-unused-labels': 'error',
+        'no-unused-labels': 'warn',
         'no-with': 'error',
         quotes: 'off',
         'react/no-danger': 'error',

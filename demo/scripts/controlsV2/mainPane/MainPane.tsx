@@ -145,7 +145,7 @@ export class MainPane extends React.Component<{}, MainPaneState> {
         const theme = getTheme(this.state.isDarkMode);
         return (
             <ThemeProvider applyTo="body" theme={theme} className={styles.mainPane}>
-                {this.renderTitleBar()}
+                {/* {this.renderTitleBar()} */}
                 {!this.state.popoutWindow && this.renderTabs()}
                 {!this.state.popoutWindow && this.renderRibbon()}
                 <div className={styles.body + ' ' + (this.state.isDarkMode ? 'dark' : '')}>
@@ -365,15 +365,17 @@ export class MainPane extends React.Component<{}, MainPaneState> {
         return (
             <>
                 {this.renderEditor()}
-                {this.state.showSidePane ? (
-                    <>
-                        <div className={styles.resizer} onMouseDown={this.onMouseDown} />
-                        {this.renderSidePane(false /*fullWidth*/)}
-                        {this.renderSidePaneButton()}
-                    </>
-                ) : (
-                    this.renderSidePaneButton()
-                )}
+                {
+                    // this.state.showSidePane ? (
+                    //     <>
+                    //         <div className={styles.resizer} onMouseDown={this.onMouseDown} />
+                    //         {this.renderSidePane(false /*fullWidth*/)}
+                    //         {this.renderSidePaneButton()}
+                    //     </>
+                    // ) : (
+                    //     this.renderSidePaneButton()
+                    // )
+                }
             </>
         );
     }
@@ -393,7 +395,9 @@ export class MainPane extends React.Component<{}, MainPaneState> {
     private renderPopout() {
         return (
             <>
-                {this.renderSidePane(true /*fullWidth*/)}
+                {
+                    //this.renderSidePane(true /*fullWidth*/)
+                }
                 {ReactDOM.createPortal(
                     <WindowProvider window={this.state.popoutWindow}>
                         <ThemeProvider applyTo="body" theme={getTheme(this.state.isDarkMode)}>

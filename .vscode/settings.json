@@ -1,6 +1,12 @@
 {
     "typescript.tsdk": "./node_modules/typescript/lib",
     "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
         "**/.buildcache": true
     },
     "files.trimTrailingWhitespace": true,
@@ -15,7 +21,7 @@
     },
     "prettier.arrowParens": "avoid",
     "prettier.singleQuote": true,
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "prettier.tabWidth": 4,
     "prettier.trailingComma": "es5",
     "prettier.printWidth": 100,
@@ -79,5 +85,6 @@
         "vlist",
         "vtable",
         "wais"
-    ]
+    ],
+    "hide-files.files": []
 }

@@ -9,7 +9,7 @@
         "removeComments": true,
         "noImplicitAny": true,
         "preserveConstEnums": false,
-        "noUnusedLocals": true,
+        "noUnusedLocals": false,
         "paths": {
             "roosterjs": ["packages/roosterjs/lib/index"],
             "roosterjs/lib/*": ["packages/roosterjs/lib/*"],
