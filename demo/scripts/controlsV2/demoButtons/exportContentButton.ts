@@ -1,4 +1,5 @@
 import { exportContent } from 'roosterjs-content-model-core';
+import { extracHtml } from '../../src/extracter';
 import type { RibbonButton } from '../roosterjsReact/ribbon';
 
 /**
@@ -16,7 +17,8 @@ export const exportContentButton: RibbonButton<ExportButtonStringKey> = {
     flipWhenRtl: true,
     onClick: editor => {
         const win = editor.getDocument().defaultView.open();
-        const html = exportContent(editor);
+        // const html = exportContent(editor);
+        const html = extracHtml(editor);
         win.document.write(editor.getTrustedHTMLHandler()(html));
     },
     commandBarProperties: {

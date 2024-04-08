@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Editor from '@monaco-editor/react';
 import { exportContent } from 'roosterjs-content-model-core';
+import { extracHtml } from '../src/extracter';
 import { IEditor } from 'roosterjs-content-model-types';
 import { MainPane } from '../controlsV2/mainPane/MainPane';
 
@@ -33,7 +34,7 @@ export function App() {
                 <button
                     onClick={() => {
                         if (roosterEditor) {
-                            const html = exportContent(roosterEditor);
+                            const html = extracHtml(roosterEditor);
                             setRawContent(html);
                         }
                     }}>

@@ -1,4 +1,4 @@
-import { mount } from './App/main';
+import { mount } from './src/main';
 // import { mount } from './controls/MainPane';
 // import { mount as mountV2 } from './controlsV2/mainPane/MainPane';
 //
