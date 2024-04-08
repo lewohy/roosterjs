@@ -9,9 +9,10 @@
             "command": "yarn",
             "args": ["start"],
             "group": {
-                "kind": "test",
+                "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
         }
     ]
 }

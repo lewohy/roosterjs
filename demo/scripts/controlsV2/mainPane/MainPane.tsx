@@ -262,10 +262,10 @@ export class MainPane extends React.Component<
             undoButton,
             redoButton,
             zoomButton,
-            darkModeButton,
-            exportContentButton,
+            // darkModeButton,
+            // exportContentButton,
         ];
-        this.state.popoutWindow ? null : topRightButtons.push(popoutButton);
+        // this.state.popoutWindow ? null : topRightButtons.push(popoutButton);
 
         return (
             <div
