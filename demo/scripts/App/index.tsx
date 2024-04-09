@@ -1,9 +1,9 @@
-import * as React from 'react';
+import { PrimaryButton } from '@fluentui/react/lib/Button';
 import Editor from '@monaco-editor/react';
-import { exportContent } from 'roosterjs-content-model-core';
-import { extracHtml } from '../src/extracter';
+import * as React from 'react';
 import { IEditor } from 'roosterjs-content-model-types';
 import { MainPane } from '../controlsV2/mainPane/MainPane';
+import { extracHtml } from '../src/extracter';
 
 export function App() {
     const [roosterEditor, setRoosterEditor] = React.useState<IEditor | null>(null);
@@ -55,12 +55,18 @@ export function App() {
                         flexDirection: 'column',
                         alignContent: 'center',
                     }}>
-                    <button
+                    <PrimaryButton
+                        style={{
+                            width: 'auto',
+                            display: 'flex',
+                        }}
+                        text="Convert to Code"
+                        iconProps={{
+                            iconName: 'Export',
+                        }}
                         onClick={() => {
                             exportRoosterToMonaco();
-                        }}>
-                        HTML로 변환
-                    </button>
+                        }}></PrimaryButton>
                 </div>
                 <div
                     style={{
