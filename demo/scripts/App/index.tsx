@@ -8,14 +8,11 @@ import { MainPane } from '../controlsV2/mainPane/MainPane';
 export function App() {
     const [roosterEditor, setRoosterEditor] = React.useState<IEditor | null>(null);
     const [monacoContent, setMonacoContent] = React.useState<string>('');
-    const [previewHtml, setPreviewHtml] = React.useState<string>('');
-    const previewElement = React.useRef<HTMLDivElement>(null);
 
     const exportRoosterToMonaco = React.useCallback(() => {
         if (roosterEditor) {
             const html = extracHtml(roosterEditor);
             setMonacoContent(html);
-            setPreviewHtml(html);
         }
     }, [roosterEditor]);
 
@@ -24,15 +21,8 @@ export function App() {
             roosterEditor
                 .getDocument()
                 .getElementById('RoosterJsContentDiv').innerHTML = monacoContent;
-            setPreviewHtml(monacoContent);
         }
     }, [monacoContent]);
-
-    React.useEffect(() => {
-        if (previewElement.current) {
-            previewElement.current.innerHTML = previewHtml;
-        }
-    }, [previewHtml]);
 
     return (
         <div
@@ -103,17 +93,6 @@ export function App() {
                         />
                     </div>
                 </div>
-            </div>
-            <div
-                style={{
-                    width: '100%',
-                    height: '100px',
-                    display: 'flex',
-                    flex: 1,
-                    padding: '10px',
-                    boxSizing: 'border-box',
-                }}>
-                <div ref={previewElement} />
             </div>
         </div>
     );
