@@ -1,9 +1,10 @@
-import { PrimaryButton } from '@fluentui/react/lib/Button';
-import Editor from '@monaco-editor/react';
 import * as React from 'react';
+import Editor from '@monaco-editor/react';
+import { extracHtml } from '../src/extracter';
 import { IEditor } from 'roosterjs-content-model-types';
 import { MainPane } from '../controlsV2/mainPane/MainPane';
-import { extracHtml } from '../src/extracter';
+import { PrimaryButton } from '@fluentui/react/lib/Button';
+import './App.scss';
 
 export function App() {
     const [roosterEditor, setRoosterEditor] = React.useState<IEditor | null>(null);
